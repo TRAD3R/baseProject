@@ -30,6 +30,9 @@
 
 5) добавить алиас:
 	alias codecept='/vendor/bin/codecept'
-	
-6) создать тест:
+
+6) сгенерировать недостающие файлы (tests\_support\_generated):
+    codecept build
+
+7) создать тест:
 	codecept g:cept acceptance ИМЯТЕСТА
