@@ -25,7 +25,7 @@ class AppHelper
 
         switch (PROJECT_ID){
             case App::PROJECT_ID_TRAD3R:
-                $language = 'ru-RU';
+                $language = 'ru';
                 break;
         }
 

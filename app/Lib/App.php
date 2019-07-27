@@ -16,7 +16,7 @@ class App
 
     const PROJECT_ID_TRAD3R = 1;
 
-    const PROJECT_LANGUAGE_RU = 'RU';
+    const PROJECT_LANGUAGE_RU = 'ru';
 
     /**
      * @var array

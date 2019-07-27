@@ -10,7 +10,24 @@ $config = [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'basePath' => BASE_PATH,
     'components' => [
-
+        'i18n' => [
+            'translations' => [
+                'exception' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    // каталог, где будут располагаться словари
+                    'basePath' => '@translates',
+                    // исходный язык, на котором изначально написаны фразы в приложении
+                    'sourceLanguage' => 'en',
+                ],
+                'front' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    // каталог, где будут располагаться словари
+                    'basePath' => '@translates',
+                    // исходный язык, на котором изначально написаны фразы в приложении
+                    'sourceLanguage' => 'en',
+                ],
+            ],
+        ],
     ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
