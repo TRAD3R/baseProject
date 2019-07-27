@@ -8,7 +8,7 @@ actor: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
-            url: http://trad3r.trd
+            url: http://{АДРЕС САЙТА}
         - \Helper\Acceptance
         - Yii2:
             configFile: 'app/config/test.php'
