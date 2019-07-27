@@ -1,0 +1,35 @@
+1) codeception.yml: 
+	settings:
+		bootstrap: _bootstrap.php
+	modules:
+		enabled:
+			- Yii2:
+				  configFile: 'app/config/test.php'
+
+2) tests/_bootstrap.php:
+	define('YII_ENV', 'test');
+	defined('YII_DEBUG') or define('YII_DEBUG', true);
+
+	require_once dirname(__DIR__) . '/vendor/yiisoft/yii2/Yii.php';
+	require dirname(__DIR__) . '/vendor/autoload.php';
+
+3) в каждой папке с тестами лежит пустой _bootstrap.php
+
+4) acceptance.suite.yml:
+	actor: AcceptanceTester
+	modules:
+		enabled:
+			- PhpBrowser:
+				url: http://{АДРЕС САЙТА}
+			- \Helper\Acceptance
+			- Yii2:
+				configFile: 'app/config/test.php'
+				part: [orm, fixtures] # allow to use AR methods
+				entryScript: index.php
+		step_decorators: ~
+
+5) добавить алиас:
+	alias codecept='/vendor/bin/codecept'
+	
+6) создать тест:
+	codecept g:cept acceptance ИМЯТЕСТА

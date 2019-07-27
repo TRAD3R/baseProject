@@ -1,0 +1,17 @@
+# Codeception Test Suite Configuration
+#
+# Suite for acceptance tests.
+# Perform tests in browser using the WebDriver or PhpBrowser.
+# If you need both WebDriver and PHPBrowser tests - create a separate suite.
+
+actor: AcceptanceTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: http://trad3r.trd
+        - \Helper\Acceptance
+        - Yii2:
+            configFile: 'app/config/test.php'
+            part: [orm, fixtures] # allow to use AR methods
+            entryScript: index.php
+    step_decorators: ~

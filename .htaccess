@@ -1,0 +1,7 @@
+Options +FollowSymLinks
+IndexIgnore */*
+RewriteEngine on
+
+# Добавляем запрос /web/$1
+RewriteCond %{REQUEST_URI} !^/web
+RewriteRule (.*) /web/$1
