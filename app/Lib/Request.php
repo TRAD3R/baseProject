@@ -1,26 +1,19 @@
 <?php
 
-
 namespace App;
-
 
 use yii\base\BaseObject;
 
 class Request extends BaseObject
 {
-    const METHOD_GET        = 1;
-    const METHOD_POST       = 2;
-    const METHOD_PUT        = 3;
-    const METHOD_DELETE     = 4;
-    const METHOD_OPTIONS    = 5;
-    const METHOD_HEAD       = 6;
-    const METHOD_PATCH      = 7;
+    const METHOD_GET     = 1;
+    const METHOD_POST    = 2;
 
-    /** @var \yii\web\Request|\yii\console\Request */
+    /** @var \yii\console\Request|\yii\web\Request */
     private $request;
 
     /**
-     * @param \yii\web\Request|\yii\console\Request $request
+     * @param \yii\console\Request|\yii\web\Request $request
      */
     public function setRequest($request)
     {
@@ -28,75 +21,21 @@ class Request extends BaseObject
     }
 
     /**
-     * @return string
+     * @return bool|mixed
+     * @throws \Exception
      */
-    public function getLanguage()
+    public function isGet()
     {
-        if(!$this->request->getIsConsoleRequest()){
-            return $this->request->getPreferredLanguage();
-        }
-
-        return '';
+        return $this->request->isGet;
     }
 
     /**
-     * @return string|null
+     * @return bool|mixed
+     * @throws \Exception
      */
-    public function getServerHost()
+    public function isPost()
     {
-        if(!$this->request->getIsConsoleRequest()){
-            return $this->request->getHostName();
-        }
-
-        return null;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getServerAddr()
-    {
-        return $_SERVER['SERVER_ADDR'] ?: null;
-    }
-
-    /**
-     * @param null $key
-     * @param null $defaultValue
-     * @return array|mixed
-     */
-    public function get($key = null, $defaultValue = null)
-    {
-        return $this->request->get($key, $defaultValue);
-    }
-
-    /**
-     * @param null $key
-     * @param null $defaultValue
-     * @return array|mixed
-     */
-    public function post($key = null, $defaultValue = null)
-    {
-        return $this->request->post($key, $defaultValue);
-    }
-
-    /**
-     * @param string $key
-     * @param null $defaultValue
-     * @param int $source
-     * @return array|mixed
-     */
-    public function getParam($key, $defaultValue = null, $source = self::METHOD_GET)
-    {
-        if($source === self::METHOD_GET){
-            return $this->get($key, $defaultValue);
-        }
-
-        return $this->post($key, $defaultValue);
-    }
-
-    public function getCookieValidationKey()
-    {
-        return $this->request->cookieValidationKey;
+        return $this->request->isPost;
     }
 
     /**
@@ -106,4 +45,107 @@ class Request extends BaseObject
     {
         return $this->request->isAjax;
     }
+
+    /**
+     * @return string
+     */
+    public function getCsrf()
+    {
+        return $this->request->getCsrfToken();
+    }
+
+    /**
+     * @param      $key
+     * @param null $default_value
+     * @param null $max_value
+     * @return int|null
+     */
+    public function getInt($key, $default_value = null, $max_value = null)
+    {
+        return $this->getParamInt($key, self::METHOD_GET, $default_value, $max_value);
+    }
+
+    /**
+     * @param      $key
+     * @param null $default_value
+     * @return mixed|null
+     */
+    public function getStr($key, $default_value = null)
+    {
+        return $this->getParamStr($key, self::METHOD_GET, $default_value);
+    }
+
+    /**
+     * @param      $key
+     * @param null $default_value
+     * @return mixed|null
+     */
+    public function postStr($key, $default_value = null)
+    {
+        return $this->getParamStr($key, self::METHOD_POST, $default_value);
+    }
+
+    /**
+     * @param string     $key
+     * @param int        $source
+     * @param mixed|null $default_value
+     * @param null|int   $max_value максимальное значение
+     * @return int|null
+     */
+    protected function getParamInt($key, $source = self::METHOD_GET, $default_value = null, $max_value = null)
+    {
+        $value = $this->getParam($key, $source);
+        if (!is_numeric($value)) {
+            return $default_value;
+        }
+        $value_int = (int)$this->getParam($key, $source);
+
+        if (is_numeric($max_value) && $value_int > $max_value) {
+            return $max_value;
+        }
+
+        return $value_int;
+    }
+
+    /**
+     * @param string         $key
+     * @param array|int|null $source
+     * @param mixed|null     $default_value
+     * @return mixed|null
+     */
+    protected function getParamStr($key, $source = self::METHOD_GET, $default_value = null)
+    {
+        $value = $this->getParam($key, $source);
+        if (!is_string($value)) {
+            return $default_value;
+        }
+
+        return $value;
+    }
+
+    /**
+     * @param string     $key
+     * @param int        $source
+     * @param mixed|null $default_value
+     * @return mixed|null
+     */
+    protected function getParam($key, $source = self::METHOD_GET, $default_value = null)
+    {
+        if ($source == self::METHOD_GET) {
+            return $this->get($key, $default_value);
+        }
+
+        return $this->post($key, $default_value);
+    }
+
+    public function get($key = null, $default_value = null)
+    {
+        return $this->request->get($key, $default_value);
+    }
+
+    public function post($key = null, $default_value = null)
+    {
+        return $this->request->post($key, $default_value);
+    }
+
 }
