@@ -31,12 +31,6 @@ use yii\helpers\Html;
 
 </div>
 
-<script>
-    $(function () {
-        NotificationQueue({url_pull_new: '<?= \App\Helpers\Url::toRoute('notification/get') ?>'});
-    })
-</script>
-
 <?php $this->endBody() ?>
 </body>
 </html>
