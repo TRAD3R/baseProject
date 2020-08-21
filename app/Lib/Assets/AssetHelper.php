@@ -16,7 +16,7 @@ use yii\web\View;
 class AssetHelper
 {
     /** @var string все экшены контроллера */
-    const CONTOLLER_ALL = 'controller_all';
+    const CONTROLLER_ALL = 'controller_all';
     const COMMON_PART = 'common';
     const BUNDLES = 'bundles';
     const CONTROLLERS = 'controllers';
@@ -54,17 +54,17 @@ class AssetHelper
 
         if (!empty($controller_config)){
             /** регистрируем данные файлов для экшенов контроллера */
-            if(!empty($controller_config[self::CONTOLLER_ALL][self::BUNDLES])){
+            if(!empty($controller_config[self::CONTROLLER_ALL][self::BUNDLES])){
                 /** @var AssetBundle[] $asset_classes */
-                $asset_classes = $controller_config[self::CONTOLLER_ALL][self::BUNDLES];
+                $asset_classes = $controller_config[self::CONTROLLER_ALL][self::BUNDLES];
 
                 foreach ($asset_classes as $asset_class){
                     $asset_class::register($view);
                 }
             }
 
-            if(!empty($controller_config[self::CONTOLLER_ALL][self::CSS])){
-                foreach ($controller_config[self::CONTOLLER_ALL][self::CSS] as $css){
+            if(!empty($controller_config[self::CONTROLLER_ALL][self::CSS])){
+                foreach ($controller_config[self::CONTROLLER_ALL][self::CSS] as $css){
                     $view->registerCss($css);
                 }
             }

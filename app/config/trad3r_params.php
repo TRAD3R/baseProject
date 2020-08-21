@@ -2,6 +2,6 @@
 
 return [
     'domains' => [
-        'main' => 'https://trad3r.reboon.de',
+        'main' => 'https://trad3r.ru',
     ]
 ];

@@ -14,15 +14,24 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "php": ">=7.0.0",
+        "php": ">=7.3.0",
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "yiisoft/yii2-httpclient": "^2.0",
         "bower-asset/ui-contextmenu": "^1.11",
+        "bower-asset/fontawesome": "^4.6",
+        "bower-asset/chosen": "^1.5",
+        "bower-asset/icheck": "^1.0",
+        "bower-asset/bootstrap-datepicker": "^1.6",
+        "bower-asset/bootstrap-daterangepicker": "2.1.24",
+        "bower-asset/gritter": "1.8.1",
+        "bower-asset/visibilityjs": "1.2.1",
         "codeception/codeception": "^3.0",
         "codeception/specify": "*",
-        "codeception/verify": "*"
+        "codeception/verify": "*",
+        "ext-gettext": "*",
+        "rmrevin/yii2-fontawesome": "^3.6"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

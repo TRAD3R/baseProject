@@ -2,7 +2,7 @@
 /**
  *  Класс для обработки строковых значений
  */
-namespace App\Helper;
+namespace App\Helpers;
 
 
 class TextHelper

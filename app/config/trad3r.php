@@ -1,15 +1,18 @@
 <?php
 
-use yii\log\EmailTarget;
-use yii\log\FileTarget;
+use App\Logger\EmailTarget;
+use App\Mail\SmtpTransport;
+use yii\db\Connection;
+use yii\helpers\ArrayHelper;
+use yii\swiftmailer\Mailer;
 
 $config = [
     'components' => [
         'mailer'      => [
-            'class'            => \yii\swiftmailer\Mailer::class,
+            'class'            => Mailer::class,
             'useFileTransport' => false,
             'transport' => [
-                'class' => \App\Mail\SmtpTransport::class,
+                'class' => SmtpTransport::class,
             ]
         ],
         'log' => [
@@ -26,7 +29,7 @@ $config = [
             ]
         ],
         'db' => [
-            'class'                 => \yii\db\Connection::class,
+            'class'                 => Connection::class,
             'dsn'                   => 'mysql:host=127.0.0.1;dbname=trad3r',
             'username'              => '',
             'password'              => '',
@@ -35,7 +38,7 @@ $config = [
         ]
     ],
     'params' => is_file(dirname(__DIR__ ) . '/config/trad3r_params_local.php') ?
-        \yii\helpers\ArrayHelper::merge(
+        ArrayHelper::merge(
             require dirname(__DIR__) . '/config/trad3r_params.php',
             require dirname(__DIR__) . '/config/trad3r_params_local.php'
             ) :

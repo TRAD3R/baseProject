@@ -7,4 +7,7 @@ modules:
     enabled:
         - Asserts
         - \Helper\Unit
-    step_decorators: ~        
+        - Yii2:
+              part: [orm, fixtures, email, Db]
+              entryScript: index-test.php
+              configFile: 'tests/_config/unit.php'

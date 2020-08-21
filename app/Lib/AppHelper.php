@@ -4,6 +4,7 @@
 namespace App;
 
 
+use App\Components\Trad3rWebUser;
 use Yii;
 use yii\base\Exception;
 use yii\helpers\ArrayHelper;
@@ -34,6 +35,27 @@ class AppHelper
         }
 
         return $language;
+    }
+
+    /**
+     * @return string|null
+     * @throws Exception
+     */
+    public static function getProjectComponentUserClass()
+    {
+        $class = null;
+
+        switch (PROJECT_ID) {
+            case App::PROJECT_ID_TRAD3R:
+                $class = Trad3rWebUser::class;
+                break;
+        }
+
+        if ($class === null) {
+            throw new Exception('Don`t find needed behaviors');
+        }
+
+        return $class;
     }
 
     /**

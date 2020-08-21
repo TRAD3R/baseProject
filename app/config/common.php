@@ -1,19 +1,24 @@
 <?php
 
+use App\Assets\Packages\BootstrapPluginAsset;
+use App\Assets\Packages\JqueryAsset;
+use yii\debug\Module;
+use yii\web\View;
+
 $config_common = [
     'layoutPath' => '@layouts',
     'components' => [
         'assetManager' => [
             'linkAssets' => true,
             'bundles' => [
-                \App\Assets\Packages\JqueryAsset::class => [
+                JqueryAsset::class => [
                     'jsOptions' => [
-                        'position' => \yii\web\View::POS_HEAD
+                        'position' => View::POS_HEAD
                     ]
                 ],
-                \App\Assets\Packages\BootstrapPluginAsset::class => [
+                BootstrapPluginAsset::class => [
                     'jsOptions' => [
-                        'position' => \yii\web\View::POS_HEAD
+                        'position' => View::POS_HEAD
                     ]
                 ]
             ]
@@ -29,7 +34,7 @@ if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config_common['bootstrap'][] = 'debug';
     $config_common['modules']['debug'] = [
-        'class' => \yii\debug\Module::class,
+        'class' => Module::class,
     ];
 }
 

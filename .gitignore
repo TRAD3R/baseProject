@@ -11,7 +11,10 @@ tests/_output/*
 tests/_support/_generated
 
  #local files
- app/config/config_local_trad3r.php
- app/config/trad3r_params_local.php
+/app/config/*_local*
+/app/config/modules/*_local*
+#/app/config/config_local_trad3r.php
+#/app/config/trad3r_params_local.php
 
- composer.lock
+composer.lock
+#/app/config/modules/test_local.php

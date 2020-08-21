@@ -8,10 +8,10 @@ actor: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
-            url: http://{АДРЕС САЙТА}
+            url: http://cha.trd
         - \Helper\Acceptance
         - Yii2:
-            configFile: 'app/config/test.php'
+            configFile: 'tests/_config/acceptance.php'
             part: [orm, fixtures] # allow to use AR methods
             entryScript: index.php
     step_decorators: ~

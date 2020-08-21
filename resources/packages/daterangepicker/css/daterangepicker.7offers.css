@@ -1,0 +1,519 @@
+/**
+ * 7offers styles fur daterangepicker
+ */
+
+.date-picker-wrapper {
+	border:                     1px solid #39ce41;
+	box-shadow:                 none;
+	border-bottom-left-radius:  3px;
+	border-bottom-right-radius: 3px;
+	background:                 #f5f5f5;
+	padding-top:                12px;
+	padding-bottom:             60px !important;
+	width:                      auto;
+	opacity:                    0;
+	z-index:                    3;
+}
+.date-picker-wrapper.daterangepicker-right {
+	border-top-left-radius:  3px;
+	border-top-right-radius: 0;
+}
+
+.date-picker-wrapper.statrange {
+	margin-left: -87px;
+	min-width: 738px;
+}
+
+.date-picker-wrapper:before,
+.date-picker-wrapper.statrange:before {
+	content:                 " ";
+	height:                  40px;
+	background-color:        #f5f5f5;
+	border:                  1px solid #39ce41;
+	border-bottom:           0;
+	border-top-left-radius:  6px;
+	border-top-right-radius: 6px;
+	position:                absolute;
+	top:                     -40px;
+	z-index:                 2;
+}
+
+.date-picker-wrapper:before {
+	right:      -1px;
+}
+
+.date-picker-wrapper.statrange:before {
+	left: -1px;
+}
+
+.date-picker-wrapper a,
+.date-picker-wrapper .short-col a {
+	color: #088295;
+}
+
+.date-picker-wrapper .short-col a {
+	font-size:       0.8125rem;
+	text-decoration: none;
+}
+
+.date-picker-wrapper .short-col a:hover {
+	color: #1da3af;
+}
+
+.date-picker-wrapper .btn-link {
+	color: #a9a9a9;
+}
+
+.date-picker-wrapper .btn-link:hover {
+	color:           #858585;
+	text-decoration: none;
+}
+
+.date-picker-wrapper .drp_top-bar {
+	line-height: 40px;
+	height:      40px;
+}
+
+.date-picker-wrapper .drp_top-bar .apply-btn,
+.date-picker-wrapper .drp_top-bar .apply-btn.disabled {
+	color:            #ffffff;
+	background: #5bc761;
+}
+
+.date-picker-wrapper .drp_top-bar .apply-btn {
+	border: none !important;
+	font-size: 12px;
+	padding:   6px 17px;
+	right:     15px;
+}
+
+.date-picker-wrapper .drp_top-bar .apply-btn:hover {
+	color: #ffffff;
+	background: #56db5d !important;
+	font-size:           0.75rem;
+	padding: 6px 17px;
+	border: none;
+}
+
+.date-picker-wrapper .drp_top-bar .close-btn {
+	right: -22px;
+	padding: 6px 12px;
+	bottom: 5px;
+	margin-bottom: 0;
+}
+
+.date-picker-wrapper .footer b {
+	display: none;
+}
+
+.date-picker-wrapper .footer,
+.date-picker-wrapper.statrange .footer {
+	display:        inline-block;
+	margin-right:   5px;
+	vertical-align: top;
+	width: 298px;
+	padding-left: 20px;
+}
+
+.date-picker-wrapper .footer .short-col,
+.date-picker-wrapper.statrange .footer .short-col {
+	float:          left;
+	width:          50%;
+	vertical-align: top;
+}
+
+.date-picker-wrapper .footer .short-col span,
+.date-picker-wrapper.statrange .footer .short-col span {
+	display:       block;
+	font-size:     0.8125rem;
+	line-height:   15px;
+	margin-bottom: 12px;
+}
+
+.date-picker-wrapper .month-wrapper {
+	padding:    0;
+	border:     none;
+	background: transparent;
+	cursor:     default;
+	position:   relative;
+	_overflow:  hidden;
+}
+
+.date-picker-wrapper.statrange .month-wrapper {
+	display: inline-block;
+}
+
+.date-picker-wrapper.no-shortcuts .month-wrapper,
+.date-picker-wrapper.no-shortcuts.statrange .month-wrapper {
+	margin-right: 3px;
+}
+
+.date-picker-wrapper.no-shortcuts .drp_top-bar,
+.date-picker-wrapper.no-shortcuts.statrange .drp_top-bar {
+	width: 93.7% !important;
+}
+
+.date-picker-wrapper .month-wrapper .this-month-wrapper {
+	font-family:      "PT Sans", sans-serif;
+	border:           1px solid #bfbfbf;
+	border-radius:    3px;
+	background-color: #ffffff;
+	width:            192px;
+	height:           185px;
+	display:          inline-block;
+	float:            left;
+	overflow:         hidden;
+}
+
+/*.date-picker-wrapper .month-wrapper .this-month-wrapper.t1 {*/
+	/*padding-left: 1px;*/
+/*}*/
+
+/*.date-picker-wrapper .month-wrapper .this-month-wrapper.t2 {*/
+	/*padding-right: 1px;*/
+/*}*/
+
+.date-picker-wrapper .month-wrapper .this-month-wrapper tr.caption,
+.daterangepicker .calendar-date table.table-condensed thead tr:nth-child(1) {
+	height: 27px;
+}
+
+.daterangepicker,
+.daterangepicker .calendar.single .calendar-date {
+	padding: 0;
+}
+
+.daterangepicker.dropdown-menu {
+	-webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .175);
+	box-shadow:         0 2px 5px rgba(0, 0, 0, .175);
+}
+
+.daterangepicker.opensright {
+	border-top-left-radius:  3px;
+	border-top-right-radius: 0;
+}
+.daterangepicker.opensright .ranges, .daterangepicker.opensright .calendar {
+	margin: 0;
+}
+
+.daterangepicker .calendar-date table.table-condensed thead tr th,
+.daterangepicker .calendar-date table.table-condensed tbody tr td,
+.daterangepicker .calendar-date table.table-condensed tbody tr td.start-date.end-date {
+	border-radius: 0 !important;
+}
+
+.date-picker-wrapper .month-wrapper .this-month-wrapper tr.caption th,
+.daterangepicker .calendar-date table.table-condensed thead tr:nth-child(1) th {
+	background-color: #fcfcfc;
+	background-image: -moz-linear-gradient(90deg, rgb(240, 240, 242) 0%, rgb(240, 240, 242) 49%, rgb(246, 246, 247) 50%, rgb(253, 253, 254) 100%);
+	background-image: -webkit-linear-gradient(90deg, rgb(240, 240, 242) 0%, rgb(240, 240, 242) 49%, rgb(246, 246, 247) 50%, rgb(253, 253, 254) 100%);
+	background-image: -ms-linear-gradient(90deg, rgb(240, 240, 242) 0%, rgb(240, 240, 242) 49%, rgb(246, 246, 247) 50%, rgb(253, 253, 254) 100%);
+	box-shadow:       inset 1px 1.732px 0px 0px rgba(255, 255, 255, 0.078);
+	font-size:        0.625rem;
+	font-weight:      bold;
+	border-bottom:    1px solid #bfbfbf;
+	color:            #383838;
+	line-height:      17px;
+	vertical-align:   middle;
+}
+
+.date-picker-wrapper .month-wrapper .this-month-wrapper tr.caption th.month-name,
+.daterangepicker .calendar-date table.table-condensed thead tr:nth-child(1) th.month {
+	padding-top: 2px;
+	padding-bottom: 2px;
+	text-transform: uppercase;
+}
+
+.date-picker-wrapper .month-wrapper .cap {
+	font-family: "PT Sans", sans-serif;
+	float:       left;
+	font-weight: bold;
+	color:       #383838;
+	margin:      5px 5px 0 10px;
+	font-size:   0.8125rem;
+}
+
+.date-picker-wrapper .month-wrapper .cap:nth-of-type(1) {
+	margin-left: 0;
+}
+
+.date-picker-wrapper .month-wrapper table .week-name th,
+.daterangepicker .calendar-date table.table-condensed thead tr:nth-child(2) th {
+	font-size:        0.5625rem;
+	font-weight:      bold;
+	text-shadow:      0.5px 0.866px 0px rgba(255, 255, 255, 0.392);
+	color:            #585858;
+	background-image: -moz-linear-gradient(90deg, rgb(243, 244, 247) 0%, rgb(248, 249, 251) 50%, rgb(251, 252, 254) 50%, rgb(255, 255, 255) 100%);
+	background-image: -webkit-linear-gradient(90deg, rgb(243, 244, 247) 0%, rgb(248, 249, 251) 50%, rgb(251, 252, 254) 50%, rgb(255, 255, 255) 100%);
+	background-image: -ms-linear-gradient(90deg, rgb(243, 244, 247) 0%, rgb(248, 249, 251) 50%, rgb(251, 252, 254) 50%, rgb(255, 255, 255) 100%);
+	box-shadow:       0.5px 0.866px 0px 0px rgba(187, 189, 192, 0.392), inset 3.5px 6.062px 0px 0px rgba(255, 255, 255, 0.141);
+	line-height:      20px;
+}
+
+.daterangepicker .calendar-date table.table-condensed thead tr:nth-child(2) th {
+	text-transform: capitalize;
+}
+
+.date-picker-wrapper .month-wrapper table .day,
+.daterangepicker .calendar-date table.table-condensed tbody tr td {
+	font-family:   "PT Sans", sans-serif;
+	border-right:  1px solid #eaebee;
+	border-bottom: 1px solid #eaebee;
+	line-height:   10px;
+	margin-bottom: 0;
+	font-size:     0.625rem;
+	font-weight:   bold;
+	color:         #666666;
+	text-align:    center;
+	padding:       8px 0;
+	height:        auto;
+}
+
+.date-picker-wrapper .month-wrapper table .day.invalid {
+	color:  #999999;
+	cursor: default;
+}
+
+.date-picker-wrapper .month-wrapper table tbody tr td:nth-last-child(1) .day,
+.daterangepicker .calendar-date table.table-condensed tbody tr td:nth-last-child(1) {
+	border-right: 0;
+}
+
+.date-picker-wrapper .month-wrapper table tbody tr:nth-last-child(1) td .day,
+.daterangepicker .calendar-date table.table-condensed tbody tr:nth-last-child(1) td {
+	border-bottom: 0;
+}
+
+.daterangepicker .calendar-date table.table-condensed tbody tr td.available.off {
+	color: #999999 !important;
+}
+
+.date-picker-wrapper .month-wrapper table .day.real-today,
+.daterangepicker .calendar-date table.table-condensed tbody tr td.active {
+	background-color:   #ffffff;
+	box-shadow: inset 0px 0px 0px 2px #26ba2e;
+	box-sizing:         border-box;
+	-moz-box-sizing:    border-box;
+	-webkit-box-sizing: border-box;
+	border-top:         none;
+	border-left:        none;
+}
+
+.date-picker-wrapper .month-wrapper table .day.checked,
+.date-picker-wrapper .month-wrapper table .day.real-today.checked {
+	background: #e7f9d9;
+}
+
+.date-picker-wrapper .month-wrapper .hour input[type="range"] {
+	width:              185px;
+	height:             0.4em;
+	background:         #dad9d8;
+	background-image:   none;
+	box-shadow:         1.5px 2.598px 2px 0px rgba(255, 255, 255, 0.102), inset 0px 0px 2px 0px rgba(0, 0, 0, 0.188);
+	border-radius:      2px;
+	-webkit-appearance: none;
+}
+
+.date-picker-wrapper .month-wrapper .hour input[type="range"]:focus {
+	outline: none;
+}
+
+.date-picker-wrapper .month-wrapper .time1 .hour input[type="range"] {
+	margin-left: 15px;
+}
+
+.date-picker-wrapper .month-wrapper .time2 .hour input[type="range"] {
+	margin-left: -15px;
+}
+
+.date-picker-wrapper .month-wrapper .hour input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background-color:   #f8f8f8;
+	background-image:   -webkit-linear-gradient(top, #f8f8f8, #ebebeb);
+	background-image:   linear-gradient(to bottom, #f8f8f8, #ebebeb);
+	box-shadow:         1px 1.732px 3px 0px rgba(0, 0, 0, 0.196);
+	width:              18px;
+	height:             20px;
+	border:             1px solid #d1d1d1;
+	top:                -0.5em;
+	cursor:             pointer;
+	border-radius:      10px;
+}
+
+.date-picker-wrapper .month-wrapper .hour {
+	margin-top: 7px;
+}
+
+.date-picker-wrapper .month-wrapper .time-val {
+	text-align:   left;
+	padding-left: 15px;
+	padding-top:  7px;
+}
+
+.date-picker-wrapper .month-wrapper .time2 .time-val {
+	text-align: right;
+}
+
+.daterangepicker_start_input input,
+.daterangepicker_end_input input {
+	display: none !important;
+}
+
+.daterangepicker .daterangepicker_start_input {
+	position: absolute;
+	top:      -30px;
+}
+
+.daterangepicker .daterangepicker_end_input {
+	position: absolute;
+	top:      -30px;
+	right:    200px;
+}
+
+#content.publisher .stat-filters .dateranger .control-label {
+	font-size:   0.875rem !important;
+	font-weight: bold;
+	color:       #7c7c7c;
+}
+
+#content.publisher .finance-filters .dateranger {
+	width:        250px;
+	position:     relative;
+	z-index:      5;
+	margin-right: 15px;
+}
+
+#content.publisher .finance-filters .dateranger.newrange_position {
+	width: 243px !important;
+}
+
+#content.publisher .finance-filters .dateranger label {
+	margin:    3px 0 0 0;
+	padding:   0;
+	font-size: 0.8125rem;
+}
+
+#content.publisher .stat-filters.referral-filters .dateranger input[name=daterange],
+#content.publisher .finance-filters .dateranger input[name=daterange],
+#content.publisher .stat-filters .dateranger input[name=daterange] {
+	color:     #292929;
+	font-size: 0.8125rem;
+}
+
+#content.publisher .stat-filters .dateranger input[name=daterange] {
+	margin-right: 10px;
+}
+
+#content.publisher .dateranger ::-webkit-input-placeholder,
+#content.publisher .dateranger ::-moz-placeholder,
+#content.publisher .dateranger :-moz-placeholder,
+#content.publisher .dateranger :-ms-input-placeholder {
+	color: #292929 !important;
+}
+
+#content.publisher .finance-filters .dateranger div {
+	margin-right: -20px;
+	padding:      0;
+}
+
+.dateranger {
+	position: relative;
+	z-index:  5;
+}
+
+.datepicker table tr td.active.active,
+.datepicker table tr td.active:hover.active {
+	background: #5bc761;
+}
+
+.datepicker-months .month {
+	height: 45px;
+	line-height: 45px;
+	border-radius: 0;
+}
+
+.datepicker-months .month.active {
+	background-image: -moz-linear-gradient( 90deg, rgb(185,255,133) 0%, rgb(91,199,97) 100%) !important;
+	background-image: -webkit-linear-gradient( 90deg, rgb(185,255,133) 0%, rgb(91,199,97) 100%) !important;
+	background-image: -ms-linear-gradient( 90deg, rgb(185,255,133) 0%, rgb(91,199,97) 100%) !important;
+	border: 1px solid #26ba2e !important;
+	box-shadow: 0 0 5px rgba(139,189,240,0.75) inset !important;
+	border-radius: 0;
+
+}
+
+.datepicker-dropdown.datepicker-orient-bottom:before {
+	top: auto;
+}
+.datepicker-dropdown.datepicker-orient-bottom:after {
+	top: auto;
+}
+
+input[name="daterange"] {
+	position: relative;
+	z-index:  5;
+}
+
+/** Если выравнивание по правой стороне */
+.date-picker-wrapper.daterangepicker-right:before {
+	right: -1px;
+}
+
+.date-picker-wrapper.daterangepicker-right.statrange:before {
+	left: auto;
+}
+
+/** ширина инпута для даты без время */
+.daterangepicker-date {
+	width: 162px !important;
+}
+
+/** ширина инпута для даты со временем */
+.daterangepicker-datetime {
+	width: 231px !important;
+}
+/*Правки*/
+.date-picker-wrapper .gap {
+	display: none !important;
+}
+.drp_top-bar {
+	position: absolute !important;
+	bottom: 10px;
+	width: 94.5%;
+}
+.drp_top-bar .apply-btn {
+	font-family: "PT Sans", sans-serif;
+	right: 55px !important;
+}
+.drp_top-bar .close-btn {
+	font-family: "PT Sans", sans-serif;
+	font-size: 12px;
+	position: absolute;
+}
+.date-picker-wrapper {
+	font-family: "PT Sans", sans-serif;
+}
+.dateranger label.control-label {
+	margin-left: 4px;
+}
+.date-picker-wrapper .month-wrapper table .day.nextMonth, .date-picker-wrapper .month-wrapper table .day.lastMonth {
+	display: block;
+}
+.date-picker-wrapper .month-wrapper table thead {
+	border-bottom: 1px solid #eaebee;
+}
+body.rec .date-picker-wrapper:before, body.rec .date-picker-wrapper.statrange:before {
+	border: 1px solid #73bfdc;
+	border-bottom: none;
+}
+body.rec .date-picker-wrapper {
+	border: 1px solid #73bfdc;
+}
+body.rec .date-picker-wrapper .month-wrapper table .day.real-today,
+body.rec .daterangepicker .calendar-date table.table-condensed tbody tr td.active {
+	box-shadow: inset 0px 0px 0px 2px #73bfdc;
+}
+body.rec .date-picker-wrapper .month-wrapper table .day.checked,
+body.rec .date-picker-wrapper .month-wrapper table .day.real-today.checked {
+	background: #f1fcff;
+}

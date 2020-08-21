@@ -10,4 +10,7 @@ modules:
     enabled:
         # add a framework module here
         - \Helper\Functional
+        - Yii2:
+            part: [orm, fixtures, email, Db]
+            configFile: 'tests/_config/functional.php'
     step_decorators: ~        

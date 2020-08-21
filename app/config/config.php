@@ -1,6 +1,7 @@
 <?php
 
 use App\AppHelper;
+use App\RBAC\AuthManager;
 
 $params = require AppHelper::getProjectParamsFile();
 
@@ -10,6 +11,9 @@ $config = [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'basePath' => BASE_PATH,
     'components' => [
+        'authManager' => [
+            'class' => AuthManager::class,
+        ],
         'i18n' => [
             'translations' => [
                 'exception' => [

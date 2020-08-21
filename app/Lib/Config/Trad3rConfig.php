@@ -6,8 +6,8 @@ namespace App\Config;
 
 use App\App;
 use App\Assets\AssetHelper;
-use App\Assets\Packages\Trad3r\CommonTrad3rAssets;
 use App\Assets\Packages\Trad3r\MainAsset;
+use App\RBAC\RbacHelper;
 
 class Trad3rConfig extends Config
 {
@@ -41,7 +41,7 @@ class Trad3rConfig extends Config
         $client_script_confog = [
             // Общие скрипты для всех модулей
             AssetHelper::COMMON_PART => [
-                CommonTrad3rAssets::class
+//                CommonTrad3rAssets::class
             ],
             App::CONFIG_MODULE_MAIN => [
                 AssetHelper::BUNDLES => [
@@ -55,6 +55,39 @@ class Trad3rConfig extends Config
             ]
         ];
 
-        return $client_script_confog;
+        return array_merge($client_script_confog, $this->getAdminClientScriptConfig());
+    }
+
+    public function getAdminMenuItems()
+    {
+        return [
+            [
+                'label' => 'Пользователи',
+                'icon'  => 'fa fa-users',
+                'url'   => '#',
+            ],
+            [
+                'label' => 'Настройки',
+                'icon'  => 'fa fa-toggle-on',
+                'url'   => '#',
+                'items' => [
+                ],
+            ],
+        ];
+    }
+
+    public function getRbacRules()
+    {
+        return [
+            RbacHelper::BLOCK_USER             => [
+                'user/index'                     => 'Просмотр списка',
+                'user/add'                       => 'Создание пользователя',
+                'user/view'                      => 'Просмотр профиля',
+                'user/edit'                      => 'Редактирование',
+                'user/status'                    => 'Изменение статуса',
+                'user/add-comment'               => 'Добавление комментариев к пользователю',
+                'user/permission'                => 'Права',
+            ],
+        ];
     }
 }

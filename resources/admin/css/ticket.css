@@ -1,0 +1,60 @@
+.chosen-container {
+    width: 100% !important;
+}
+.ticket-msg {
+    min-width: 200px;
+    max-width: 60%;
+    margin-bottom: 30px;
+    float: left;
+    border: 1px solid #e8e8cf;
+    border-radius: 5px;
+    padding: 10px 17px 0 17px;
+    margin-left: 10px;
+    background: #e5f7d7;
+}
+.ticket-msg-adm {
+    min-width: 200px;
+    max-width: 60%;
+    margin-bottom: 30px;
+    float: right;
+    padding: 10px 17px 0 17px;
+    margin-right: 10px;
+    border-radius: 5px;
+    background: #E9F2F4;
+}
+.ticket-msg-files .image, .ticket-msg-files .file {
+    display: inline-block;
+    position: relative;
+}
+.ticket-msg-files .image img {
+    width: 120px;
+    height: 100px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.ticket-msg-files .image .delete-img,  .ticket-msg-files .file .delete-img{
+    width: 10px;
+    display: none;
+}
+.ticket-msg-files .image:hover .delete-img {
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    color: #f6221c;
+    left: 110px;
+    z-index: 1;
+    font-weight: bold;
+}
+.ticket-msg-files .file:hover .delete-img {
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    color: #f6221c;
+    left: -10px;
+    z-index: 1;
+    font-weight: bold;
+}
+.ticket-msgs {
+    height: 480px;
+    overflow: auto;
+}
