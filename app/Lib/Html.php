@@ -26,4 +26,14 @@ class Html extends \yii\helpers\Html
 
         return $view->renderFile('@Admin/views/layouts/paginator.php', ['pagination' => $pagination, 'options' => $options]);
     }
+
+    /**
+     * @return string
+     * @throws \yii\base\InvalidConfigException
+     * @throws \yii\di\NotInstantiableException
+     */
+    public static function getCsrfField()
+    {
+        return \yii\helpers\Html::hiddenInput(App::i()->getRequest()->getCsrfParam(), App::i()->getRequest()->getCsrf());
+    }
 }

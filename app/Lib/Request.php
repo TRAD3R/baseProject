@@ -49,6 +49,14 @@ class Request extends BaseObject
     /**
      * @return string
      */
+    public function getCsrfParam()
+    {
+        return $this->request->csrfParam;
+    }
+
+    /**
+     * @return string
+     */
     public function getCsrf()
     {
         return $this->request->getCsrfToken();
