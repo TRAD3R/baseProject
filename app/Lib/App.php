@@ -81,7 +81,7 @@ class App
             }
 
             if($this->isTrad3r()){
-                $config_file_local = dirname(__DIR__) . '/config/config_local_trad3r.php';
+                $config_file_local = dirname(__DIR__) . '/config/trad3r_local.php';
             }
             if(isset($config_file_local) && is_file($config_file_local) && is_readable($config_file_local)){
                 $local_config = require $config_file_local;

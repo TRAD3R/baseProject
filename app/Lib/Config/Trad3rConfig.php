@@ -67,6 +67,13 @@ class Trad3rConfig extends Config
                 'url'   => '#',
             ],
             [
+                'label' => 'Справочники',
+                'icon'  => 'fa fas-toggle-on',
+                'url'   => '#',
+                'items' => [
+                ],
+            ],
+            [
                 'label' => 'Настройки',
                 'icon'  => 'fa fa-toggle-on',
                 'url'   => '#',
