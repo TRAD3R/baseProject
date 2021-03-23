@@ -18,3 +18,4 @@ tests/_support/_generated
 
 composer.lock
 #/app/config/modules/test_local.php
+/app/Modules/Main/Trad3r/runtime/
