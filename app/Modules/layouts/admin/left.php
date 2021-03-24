@@ -6,7 +6,7 @@
 use App\Helpers\Url;
 use App\Html;
 use App\Params;
-use yii\widgets\Menu;
+use App\Widgets\Menu;
 
 ?>
 <aside class="main-sidebar">

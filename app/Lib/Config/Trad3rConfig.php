@@ -63,19 +63,19 @@ class Trad3rConfig extends Config
         return [
             [
                 'label' => 'Пользователи',
-                'icon'  => 'fa fa-users',
+                'icon'  => 'fas fa-users',
                 'url'   => '#',
             ],
             [
                 'label' => 'Справочники',
-                'icon'  => 'fa fas-toggle-on',
+                'icon'  => 'fas fa-book',
                 'url'   => '#',
                 'items' => [
                 ],
             ],
             [
                 'label' => 'Настройки',
-                'icon'  => 'fa fa-toggle-on',
+                'icon'  => 'fas fa-tools',
                 'url'   => '#',
                 'items' => [
                 ],

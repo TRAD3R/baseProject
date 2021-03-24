@@ -26,11 +26,11 @@ class Admin extends BaseController
                             $auth_manager = $this->getApp()->getAuthManager();
                             $permission   = $this->id . '/' . $action_id;
 
-                            if ($auth_manager->getPermission($permission) && !$this->getApp()->user->can($permission)) {
+                            if ($auth_manager->getPermission($permission) && $this->getApp()->user->can($permission)) {
                                 return true;
                             }
 
-                            return true;
+                            return $this->redirect(['/admin/introduce']);
                         }
                     ],
                 ],
