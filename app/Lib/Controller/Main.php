@@ -3,6 +3,8 @@
 
 namespace App\Controller;
 
+use App\Assets\AssetHelper;
+
 abstract class Main extends BaseController
 {
     public function beforeAction($action)
@@ -10,12 +12,11 @@ abstract class Main extends BaseController
         if (!parent::beforeAction($action)) {
             return false;
         }
-        return $this->redirect(['admin/site/index']);
 
-//        if(!$this->getRequest()->isAjax()) {
-//            AssetHelper::init($this->view);
-//        }
+        if(!$this->getRequest()->isAjax()) {
+            AssetHelper::init($this->view);
+        }
 
-//        return true;
+        return true;
     }
 }
