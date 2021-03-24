@@ -7,7 +7,9 @@ namespace App\Config;
 use App\App;
 use App\Assets\AssetHelper;
 use App\Assets\Packages\Trad3r\MainAsset;
+use App\Helpers\TextHelper;
 use App\RBAC\RbacHelper;
+use Yii;
 
 class Trad3rConfig extends Config
 {
@@ -65,6 +67,10 @@ class Trad3rConfig extends Config
                 'label' => 'Пользователи',
                 'icon'  => 'fas fa-users',
                 'url'   => '#',
+                'items' => [
+                    ['label' => TextHelper::upperFirstChar(Yii::t('admin', 'администраторы')), 'icon' => 'fas fa-user-shield', 'url' => ['user/administrator'],],
+                    ['label' => TextHelper::upperFirstChar(Yii::t('admin', 'менеджеры')), 'icon' => 'fas fa-user-tie', 'url' => ['user/manager'],],
+                ]
             ],
             [
                 'label' => 'Справочники',
@@ -92,7 +98,6 @@ class Trad3rConfig extends Config
                 'user/view'                      => 'Просмотр профиля',
                 'user/edit'                      => 'Редактирование',
                 'user/status'                    => 'Изменение статуса',
-                'user/add-comment'               => 'Добавление комментариев к пользователю',
                 'user/permission'                => 'Права',
             ],
         ];

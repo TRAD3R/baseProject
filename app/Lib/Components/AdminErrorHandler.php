@@ -4,7 +4,6 @@ namespace App\Components;
 
 use App\App;
 use yii\web\ErrorHandler;
-use yii\web\NotFoundHttpException;
 
 class AdminErrorHandler extends ErrorHandler
 {
@@ -13,8 +12,8 @@ class AdminErrorHandler extends ErrorHandler
         $current_user = App::i()->getCurrentUser();
 
         if (!$current_user || ($current_user && !$current_user->isAdmin())) {
-            $this->errorAction = '/error/error';
-            $this->exception = new NotFoundHttpException();
+            $this->errorAction = '/admin/error/error';
+            $this->exception = $exception;
         }
 
         parent::renderException($exception);

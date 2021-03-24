@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Helpers\Url;
 use Exception;
 use yii\data\Pagination;
 use yii\web\View;
@@ -24,7 +25,7 @@ class Html extends \yii\helpers\Html
             throw new Exception('Invalid params passed');
         }
 
-        return $view->renderFile('@Admin/views/layouts/paginator.php', ['pagination' => $pagination, 'options' => $options]);
+        return $view->renderFile('@Admin/views/layout/paginator.php', ['pagination' => $pagination, 'options' => $options]);
     }
 
     /**
@@ -35,5 +36,25 @@ class Html extends \yii\helpers\Html
     public static function getCsrfField()
     {
         return \yii\helpers\Html::hiddenInput(App::i()->getRequest()->getCsrfParam(), App::i()->getRequest()->getCsrf());
+    }
+
+    /**
+     * Генерим ссылку на юзера
+     * @param        $id
+     * @param string $target
+     * @param bool   $use_icon
+     * @param string $field
+     * @return string
+     */
+    public static function userUrl($id, $target = '_blank', $use_icon = true, $field = null)
+    {
+        if (!$field) {
+            $field = $id;
+        }
+
+        return '<a href="' . Url::toRoute([
+                'user/edit',
+                Params::ID => $id,
+            ]) . '" target="' . $target . '">' . ($use_icon ? '<i class="fa fa-user"></i>&nbsp;' : '') . self::encode($field) . '</a>';
     }
 }

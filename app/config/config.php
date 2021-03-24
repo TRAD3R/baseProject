@@ -21,14 +21,21 @@ $config = [
                     // каталог, где будут располагаться словари
                     'basePath' => '@translates',
                     // исходный язык, на котором изначально написаны фразы в приложении
-                    'sourceLanguage' => 'en',
+                    'sourceLanguage' => 'snake',
                 ],
                 'front' => [
                     'class' => 'yii\i18n\PhpMessageSource',
                     // каталог, где будут располагаться словари
                     'basePath' => '@translates',
                     // исходный язык, на котором изначально написаны фразы в приложении
-                    'sourceLanguage' => 'en',
+                    'sourceLanguage' => 'snake',
+                ],
+                'admin' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    // каталог, где будут располагаться словари
+                    'basePath' => '@translates',
+                    // исходный язык, на котором изначально написаны фразы в приложении
+                    'sourceLanguage' => 'snake',
                 ],
             ],
         ],

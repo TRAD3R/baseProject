@@ -156,4 +156,51 @@ class Request extends BaseObject
         return $this->request->post($key, $default_value);
     }
 
+    /**
+     * @param       $key
+     * @param int   $source
+     * @param array $default_value
+     * @return array|mixed|null
+     */
+    protected function getParamArray($key, $source = self::METHOD_GET, array $default_value = [])
+    {
+        $value = $this->getParam($key, $source);
+        if (!is_array($value)) {
+            return $default_value;
+        }
+
+        return $value;
+    }
+
+    /**
+     * @param       $key
+     * @param array $default_value
+     * @return array|mixed|null
+     */
+    public function getArray($key, array $default_value = [])
+    {
+        return $this->getParamArray($key, self::METHOD_GET, $default_value);
+    }
+
+    /**
+     * @param      $key
+     * @param null $default_value
+     * @param null $max_value
+     * @return int|null
+     */
+    public function postInt($key, $default_value = null, $max_value = null)
+    {
+        return $this->getParamInt($key, self::METHOD_POST, $default_value, $max_value);
+    }
+
+    /**
+     * @param       $key
+     * @param array $default_value
+     * @return array|mixed|null
+     */
+    public function postArray($key, array $default_value = [])
+    {
+        return $this->getParamArray($key, self::METHOD_POST, $default_value);
+    }
+
 }

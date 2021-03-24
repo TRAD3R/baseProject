@@ -13,6 +13,24 @@ class BaseController extends Controller
 {
     private $pagination;
 
+    /**
+     * @param $action
+     * @return bool
+     * @throws \yii\web\BadRequestHttpException
+     */
+    public function beforeAction($action)
+    {
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+        if ($this->getRequest()->isAjax()) {
+            $this->getResponse()->setJsonFormat();
+        }
+
+        return true;
+    }
+
     public function getRequest()
     {
         return App::i()->getRequest();
@@ -44,12 +62,12 @@ class BaseController extends Controller
      */
     public function setFlash($type = 'success', $message = '')
     {
-        \Yii::$app->session->setFlash($type, $message);
+        App::i()->getSession()->setFlash($type, $message);
     }
 
     public function addFlash($type = 'success', $message = '')
     {
-        \Yii::$app->session->addFlash($type, $message);
+        App::i()->getSession()->addFlash($type, $message);
     }
     /**
      * @param int $total_count

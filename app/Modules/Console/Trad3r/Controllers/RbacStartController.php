@@ -16,7 +16,7 @@ class RbacStartController extends Controller
         $auth->add($user);
 
         // добавляем роль "admin"
-        $admin = $auth->createRole(User::TYPE_USER);
+        $admin = $auth->createRole(User::TYPE_MANAGER);
         $auth->add($admin);
         $auth->addChild($admin, $user);
     }
