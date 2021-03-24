@@ -16,5 +16,7 @@ class Params
     const PAGE           = 'page';
     const PER_PAGE       = 'per_page';
     const SEARCH         = 'q';
+    const USER_TYPE      = 'user_type';
+    const VALUE          = 'value';
 
 }

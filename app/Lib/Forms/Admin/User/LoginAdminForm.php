@@ -28,7 +28,6 @@ class LoginAdminForm extends LoginForm
         if ($this->_entity === false) {
             $this->_entity = User::findOne([
                 'username' => $this->username,
-                'type' => User::TYPE_ADMIN
             ]);
 
         }
@@ -44,10 +43,7 @@ class LoginAdminForm extends LoginForm
                 return false;
             }
 
-            //если логинимся под админом - ставим куку, чтобы не учитывать в анализе и при острелах инфы в пиксель
-            App::i()->getCookie()->set(App::i()->getConfig()->getAdminCookiePrefix(), md5($this->getUser()->id), time() + 5*365*24*60*60, '/', true, App::i()->getConfig()->getFaceDomain());
-
-            return \Yii::$app->user->login($this->getUser(), $this->remember_me ? 3600 * 24 * 30 : 0);
+            return App::i()->getApp()->user->login($this->getUser(), $this->remember_me ? 3600 * 24 * 30 : 0);
         }
         return false;
     }

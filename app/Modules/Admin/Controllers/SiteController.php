@@ -26,7 +26,7 @@ class SiteController extends Admin
 
         $data['users'] = (new Query())
             ->select([
-                'user_total'     => new Expression('SUM(IF(type = ' . User::TYPE_USER . ', 1, 0))'),
+                'user_total'     => new Expression('SUM(IF(type = ' . User::TYPE_MANAGER . ', 1, 0))'),
             ])
             ->from(User::tableName())
             ->one();
