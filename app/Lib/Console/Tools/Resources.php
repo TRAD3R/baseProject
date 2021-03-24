@@ -25,16 +25,17 @@ class Resources
         ];
 
         $resources = [
-            AppHelper::getProjectResourcesAlias(),
-            '@admin_resources'
+            'trad3r' => AppHelper::getProjectResourcesAlias(),
+            'admin' => '@admin_resources'
         ];
 
         foreach ($sources as $folder){
-            foreach ($resources as $resource) {
+            foreach ($resources as $resMainDir => $resource) {
+                $destinationFolder = $destination . DIRECTORY_SEPARATOR . $folder . DIRECTORY_SEPARATOR . $resMainDir;
                 $source = Yii::getAlias($resource) . DIRECTORY_SEPARATOR . $folder;
                 if(is_dir($source)){
-                    exec('cd ' . $destination . DIRECTORY_SEPARATOR . $folder . ' && ls | grep -v \'.gitignore\' | xargs rm -rf');
-                    exec('cp -R ' . $source . ' ' . $destination);
+                    exec('cd ' . $destinationFolder . DIRECTORY_SEPARATOR . $folder . ' && ls | grep -v \'.gitignore\' | xargs rm -rf');
+                    exec('cp -R ' . $source . ' ' . $destinationFolder);
                     exec('cd ..');
                 }
             }
