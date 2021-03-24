@@ -10,12 +10,7 @@ abstract class Main extends BaseController
         if (!parent::beforeAction($action)) {
             return false;
         }
-        return $this->redirect(['admin/site/index']);
 
-//        if(!$this->getRequest()->isAjax()) {
-//            AssetHelper::init($this->view);
-//        }
-
-//        return true;
+        return $this->redirect(['admin/introduce']);
     }
 }
