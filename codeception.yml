@@ -1,11 +1,14 @@
-﻿paths:
+﻿actor: Tester
+paths:
     tests: tests
-    output: tests/_output
+    log: tests/_output
     data: tests/_data
-    support: tests/_support
-    envs: tests/_envs
-actor_suffix: Tester
-extensions:
-    enabled:
-        - Codeception\Extension\RunFailed
+    helpers: tests/_support
+settings:
+    memory_limit: 1024M
+    colors: true
 bootstrap: _bootstrap.php
+modules:
+    config:
+        - Yii2:
+              configFile: 'app/config/modules/test.php'
