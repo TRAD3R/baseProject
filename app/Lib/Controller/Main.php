@@ -3,7 +3,6 @@
 
 namespace App\Controller;
 
-
 use App\Assets\AssetHelper;
 
 abstract class Main extends BaseController

@@ -79,7 +79,7 @@ class LoginForm extends Model
                     ['username' => $this->username],
                     ['email' => $this->username],
                 ])
-                ->andWhere(['IN', 'type', [User::TYPE_USER]])
+                ->andWhere(['IN', 'type', [User::TYPE_MANAGER]])
                 ->one();
         }
 

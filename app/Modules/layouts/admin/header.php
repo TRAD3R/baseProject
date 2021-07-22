@@ -6,12 +6,14 @@
  */
 
 use App\App;
+use App\Helpers\Url;
+use App\Html;
 
 ?>
 
 <header class="main-header">
 
-    <a href="<?= \App\Helpers\Url::toRoute(['/admin'])?>" class="logo">
+    <a href="<?= Url::toRoute(['/admin'])?>" class="logo">
         <span class="logo-lg">Dashboard</span>
     </a>
 
@@ -25,12 +27,12 @@ use App\App;
             <ul class="nav navbar-nav">
                 <li>
                     <?php if (App::i()->getApp()->getAuthManager()->checkAccess(App::i()->getCurrentUser()->id, 'plan/index')): ?>
-                        <?= \App\Html::a('План работ', \App\Helpers\Url::toRoute('plan/index'), ['class' => 'btn btn-info']) ?>
+                        <?= Html::a('План работ', Url::toRoute('plan/index'), ['class' => 'btn btn-info']) ?>
                     <?php endif; ?>
                 </li>
                 <li class="user user-menu">
-                    <a href="<?= \App\Helpers\Url::toRoute(['auth/logout']) ?>">
-                        <span><?= App::i()->getCurrentUser()->username; ?> <i class="fa fa-sign-out"></i></span>
+                    <a href="<?= Url::toRoute(['auth/logout']) ?>">
+                        <span><?= App::i()->getCurrentUser()->username; ?> <i class="fas fa-sign-out-alt"></i></span>
                     </a>
                 </li>
             </ul>

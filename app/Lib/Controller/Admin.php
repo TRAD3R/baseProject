@@ -19,18 +19,24 @@ class Admin extends BaseController
                 'rules' => [
                     [
                         'allow'         => true,
-                        'roles'         => [User::TYPE_ADMIN],
+                        'roles'         => [User::TYPE_ADMIN, User::TYPE_MANAGER],
                         'matchCallback' => function ($rule, $action) {
 
                             $action_id    = $action->id;
                             $auth_manager = $this->getApp()->getAuthManager();
                             $permission   = $this->id . '/' . $action_id;
 
-                            if ($auth_manager->getPermission($permission) && !$this->getApp()->user->can($permission)) {
+                            // если такого правила нет, то проверяем внутри контроллера
+                            if(!$auth_manager->getPermission($permission)) {
                                 return true;
                             }
 
-                            return true;
+                            if ($auth_manager->getPermission($permission) && $this->getApp()->user->can($permission)) {
+                                return true;
+                            }
+
+                            // если правило есть, но нет прав, то отправляем на авторизацию
+                            return $this->redirect(['/admin/introduce']);
                         }
                     ],
                 ],

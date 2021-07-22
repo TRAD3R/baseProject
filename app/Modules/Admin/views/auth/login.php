@@ -25,7 +25,7 @@ use yii\bootstrap\ActiveForm;
 
         <div class="row">
             <div class="col-xs-4">
-                <?= Html::submitButton('<i class="fa fa-sign-in"></i>', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button']) ?>
+                <?= Html::submitButton('<i class="fas fa-sign-in-alt"></i>', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button']) ?>
             </div>
         </div>
 

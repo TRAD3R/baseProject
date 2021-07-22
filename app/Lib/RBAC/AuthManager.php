@@ -11,6 +11,6 @@ use yii\rbac\DbManager;
  */
 class AuthManager extends DbManager{
 
-    public $defaultRoles = [User::TYPE_ADMIN, User::TYPE_USER];
+    public $defaultRoles = [User::TYPE_ADMIN, User::TYPE_MANAGER];
 
 }

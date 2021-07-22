@@ -5,6 +5,9 @@ namespace App\Models;
 use App\App;
 use App\Behaviors\Timestamp;
 use App\ActiveRecord;
+use App\Helpers\TextHelper;
+use App\Roles;
+use DateTime;
 use Yii;
 use yii\web\IdentityInterface;
 
@@ -12,21 +15,23 @@ use yii\web\IdentityInterface;
  * Class User
  *
  * @property int                   $id                                  ID
+ * @property DateTime              $date_created                        [datetime]
+ * @property DateTime              $date_updated                        [datetime]
  * @property string                $username                            [varchar(255)]
  * @property string                $auth_key                            [varchar(32)]
  * @property string                $password_hash                       [varchar(255)]
  * @property string                $password_reset_token                [varchar(255)]
  * @property string                $email                               [varchar(255)]
  * @property int                   $type                                [smallint(6)]
- * @property int                   $status                              [smallint(6)]
+ * @property int                   $status                              [tinyint(1)]
  */
 class User extends ActiveRecord implements IdentityInterface
 {
     const TYPE_ADMIN = 1;
-    const TYPE_USER  = 2;
+    const TYPE_MANAGER  = 2;
 
-    const STATUS_NOT_ACTIVE     = 0;
-    const STATUS_ACTIVE         = 1;
+    const STATUS_NOT_ACTIVE     = 1;
+    const STATUS_ACTIVE         = 2;
 
     const PASSWORD_RESET_TOKEN_TTL = 3600;
 
@@ -65,7 +70,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-//        return self::findOne(['access_token' => $token]);
+        return null;
     }
 
     public function getId()
@@ -170,8 +175,8 @@ class User extends ActiveRecord implements IdentityInterface
     public static function getUserType($type = null)
     {
         $types = [
-            self::TYPE_ADMIN => 'Админстратор',
-            self::TYPE_USER  => 'Пользователь',
+            self::TYPE_ADMIN => TextHelper::upperFirstChar(Yii::t('admin', 'администратор')),
+            self::TYPE_MANAGER  => TextHelper::upperFirstChar(Yii::t('admin', 'менеджер')),
         ];
 
         return isset($types[$type]) ? $types[$type] : $types;
@@ -190,7 +195,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function isUser()
     {
-        return $this->type == self::TYPE_USER;
+        return $this->type == self::TYPE_MANAGER;
     }
 
     /**
@@ -231,5 +236,19 @@ class User extends ActiveRecord implements IdentityInterface
     public function isActive()
     {
         return in_array($this->status, self::getActiveStatuses());
+    }
+
+    /**
+     * Может ли пользователь редактировать другого пользовтаеля
+     * @param User $user
+     * @return bool
+     */
+    public function isEditableByUser(User $user)
+    {
+        if (Roles::i()->isAdministrator($user)) {
+            return true;
+        }
+
+        return false;
     }
 }
