@@ -15,7 +15,7 @@ class Trad3rConfig extends Config
 {
     public function getNoReplyEmail()
     {
-        return 'no-reply@trad3r.ru';
+        return App::i()->getApp()->params['emails']['noreply'];
     }
 
     public function getAdminBaseUrl()
@@ -25,17 +25,17 @@ class Trad3rConfig extends Config
 
     public function getProjectLanguage()
     {
-        return App::PROJECT_LANGUAGE_RU;
+        return App::PROJECT_LANGUAGE_EN;
     }
 
     public function getDefaultTimeZone()
     {
-        return "Europe/Moscow";
+        return App::i()->getApp()->params['timezone'];
     }
 
     public function getCookieKey()
     {
-        return 'trad3r_key';
+        return App::i()->getApp()->params['cookie_key'];
     }
 
     public function getClientScriptConfig()

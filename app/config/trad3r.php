@@ -1,9 +1,11 @@
 <?php
 
+use App\App;
 use App\Logger\EmailTarget;
 use App\Mail\SmtpTransport;
 use yii\db\Connection;
 use yii\helpers\ArrayHelper;
+use yii\log\FileTarget;
 use yii\swiftmailer\Mailer;
 
 $config = [
@@ -25,6 +27,13 @@ $config = [
                         'from' => ['log@trad3r'],
                         'to'   => ['tatusr@gmail.com']
                     ]
+                ],
+                [
+                    'class' => FileTarget::class,
+                    'levels' => ['info'],
+                    'categories' => [App::LOG_DEV],
+                    'logVars' => [],
+                    'logFile' => '@Logs/development.log'
                 ],
             ]
         ],

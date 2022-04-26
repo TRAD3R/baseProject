@@ -21,6 +21,9 @@ class App
     const PROJECT_ID_TRAD3R = 1;
 
     const PROJECT_LANGUAGE_RU = 'ru';
+    const PROJECT_LANGUAGE_EN = 'en';
+
+    const LOG_DEV = 'dev';
 
     /**
      * @var array
@@ -198,7 +201,7 @@ class App
         }
         putenv('LANG=' . $domain);
         setlocale(LC_MESSAGES, $domain . '.utf8');
-        bindtextdomain($domain, dirname(dirname(__DIR__)) . '/locale');
+        bindtextdomain($domain, dirname(__DIR__, 2) . '/locale');
         textdomain($domain);
         bind_textdomain_codeset($domain, 'UTF-8');
     }

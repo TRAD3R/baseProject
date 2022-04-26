@@ -14,7 +14,7 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "php": ">=7.3.0",
+        "php": ">=7.0.0",
         "yiisoft/yii2": "~2.0.38",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
@@ -31,7 +31,8 @@
         "codeception/specify": "*",
         "codeception/verify": "*",
         "ext-gettext": "*",
-        "rmrevin/yii2-fontawesome": "^3.6"
+        "rmrevin/yii2-fontawesome": "^3.6",
+        "bashkarev/clickhouse": "^2.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
